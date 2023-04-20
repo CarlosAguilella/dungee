@@ -11,7 +11,7 @@
     function apuntarse(){
         fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pinbe.value}/users.json`, {
             method: 'POST',
-            body: ´{"name":${nombe}}´
+            body: `{"name": "${nombe.value}" }`
         })
     }
 
