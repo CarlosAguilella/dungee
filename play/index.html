@@ -2,16 +2,16 @@
 
 <h1>PLAY</h1>
 
-<input placeholder="PIN"/>
-<input placeholder="Your name"/>
+<input id="pinbe" placeholder="PIN"/>
+<input id="nombe" placeholder="Your name"/>
 
 <button onclick="apuntarse()">PLAY</button>
 
 <script>
     function apuntarse(){
-        fetch ('https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN4668/users.json', {
+        fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pinbe.value}/users.json`, {
             method: 'POST',
-            body: '{"name":"gerard"}'
+            body: ´{"name":${nombe}}´
         })
     }
 
