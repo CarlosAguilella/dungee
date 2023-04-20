@@ -2,11 +2,13 @@
 
 <h1>START</h1>
 <button onclick="generarPIN()">START</button>
+<p id = "pinchow"></p>
 <script>
 function generarPIN(){
     const pin = Math.floor(Math.random()*10000);
 
     console.log(pin);
+    pinchow.innerText = pin;
 }
 
 
