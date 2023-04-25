@@ -1,7 +1,6 @@
 <p id="usersP"></p>
 
 <script>
-    let usersList = ""
     const json = {
         "users": {
             "-NkJoPY": {
@@ -11,15 +10,34 @@
                 "name": "hector"
             },
             "-Nkasoidfh": {
-                "name": "dsfhbaksdf"
+                "name": "alejandro"
+            },
+            "-Nkasoidfh": {
+                "name": "josep"
+            },
+            "-Nkasoidfh": {
+                "name": "jp"
+            },
+            "-Nkasoidfh": {
+                "name": "manolo"
+            },
+            "-Nkasoidfh": {
+                "name": "la profe nueva"
+            },
+            "-Nkasoidfh": {
+                "name": "empieza el jueves"
+            },
+            "-Nkasoidfh": {
+                "name": "se acaba el chollo"
             }
         }
     }
 
+    let usersList = ""
 
 
     for (const x in json.users){
-        usersList += (json.users[x].name) + ", "
+        usersList += (json.users[x].name) + "   "
 
     }
     usersP.innerText = usersList;
