@@ -10,6 +10,8 @@
 <h1>START</h1>
 <button onclick="generarPIN()">START</button>
 <p id = "pinEl"></p>
+<p id="usersP"></p>
+
 
 <script>
 let pin;
@@ -25,7 +27,17 @@ function generarPIN(){
 function obtenerUsuarios(){
     fetch(`https://dungee-tano.vercel.app/api/damelosusers?pin=${pin}`)
     .then(datos => datos.json())
-    .then(json => console.log(json));
+    .then(json => {
+        let usersList = ""
+
+
+        for (const x in json.users){
+            usersList += (json.users[x].name) + "   "
+
+        }
+        usersP.innerText = usersList
+        });
+
 
 }
 </script> 
