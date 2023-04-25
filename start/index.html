@@ -46,7 +46,7 @@ function obtenerUsuarios(){
 }
 
 function mostrarPreguntas(){
-    fetch(`https://dungee-tano.vercel.app/api/damelaspreguntas.json`)
+    fetch(`https://dungee-tano.vercel.app/api/damelaspreguntas`)
     .then(preguntitas => preguntitas.json())
     .then(json => {
         let pregunList = ""
