@@ -12,10 +12,10 @@ function generarPIN(){
 }
 
 function obtenerUsuarios(){
-    fetch(`https://dungee-tano.vercel.app/damelosusers`)
+    fetch(`https://dungee-tano.vercel.app/api/damelosusers`)
     .then(datos => datos.json())
     .then(json => {
-    console.log(json);
+        console.log(json);
     })
 
 }
