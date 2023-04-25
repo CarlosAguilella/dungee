@@ -12,17 +12,19 @@
 <p id = "pinEl"></p>
 
 <script>
+let pin;
+
 function generarPIN(){
     const pin = Math.floor(Math.random()*10000);
     pinEl.innerText = pin;
 }
 
 function obtenerUsuarios(){
-    fetch(`https://dungee-tano.vercel.app/api/damelosusers`)
+    fetch(`https://dungee-tano.vercel.app/api/damelosusers?pin=${pin}`)
     .then(datos => datos.json())
     .then(json => console.log(json));
 
 }
 
 obtenerUsuarios();
-</script>
+</script> 
