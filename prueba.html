@@ -1,7 +1,7 @@
 <p id="usersP"></p>
 
 <script>
-    let usersList
+    let usersList = ""
     const json = {
         "users": {
             "-NkJoPY": {
@@ -19,7 +19,7 @@
 
 
     for (const x in json.users){
-        usersList += (json.users[x].name)
+        usersList += (json.users[x].name) + ", "
 
     }
     usersP.innerText = usersList;
