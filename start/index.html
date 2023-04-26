@@ -14,8 +14,8 @@
 
 
 <p id = "pinEl"></p>
-<p id="usersP"></p>
-<p id="preguntitasP"></p>
+<p id="usersEl"></p>
+<div id="preguntasEl"></div>
 
 
 
@@ -41,7 +41,7 @@ function obtenerUsuarios(){
             usersList += (json.users[x].name) + "   "
 
         }
-        usersP.innerText = usersList
+        usersEl.innerText = usersList
         });
 
 
