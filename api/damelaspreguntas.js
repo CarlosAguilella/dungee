@@ -1,11 +1,16 @@
 export default function handler(request, response){
-    const preguntas = [
-        {"pregunta" : ["cuanto es 2+2?","6","8","2","4",4]},
-        {"pregunta" : ["cuanto es 3+3?","6","8","2","5",1]},
-        {"pregunta" : ["cuanto es 4+4?","6","8","2","5",2]}
-    ]
+    const preguntas = {
+        "pregunta1" : {
+            "pregunta" : "2+2?", "res1" : "2", "res2" : "20", "res3" : "5", "res4" : "3", "correcta" : "1"
+        },
+        "pregunta2" : {
+            "pregunta" : "18+2?", "res1" : "2", "res2" : "20", "res3" : "5", "res4" : "3", "correcta" : "2"
+        },
+        "pregunta3" : {
+            "pregunta" : "3+2?", "res1" : "2", "res2" : "20", "res3" : "5", "res4" : "3", "correcta" : "3"
+        }
 
-
+    }
 
     response.json(preguntas)
 }
