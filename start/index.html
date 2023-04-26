@@ -50,15 +50,16 @@ function obtenerUsuarios(){
 function mostrarPreguntas(){
     fetch(`https://dungee-tano.vercel.app/api/damelaspreguntas`)
     .then(preguntitas => preguntitas.json())
-    .then(json => {
-        console.log(json);
-        let pregunList = ""
+    .then(questions => {
+        for ( const pregunta in questions.preguntas){
+        
+        preguntasEl.innerHTML += "<h1>" + questions.preguntas[pregunta].pregunta + "</h1>"
+        preguntasEl.innerHTML += "<h2>" + questions.preguntas[pregunta].res1 + "</h2>"
+        preguntasEl.innerHTML += "<h2>" + questions.preguntas[pregunta].res2 + "</h2>"
+        preguntasEl.innerHTML += "<h2>" + questions.preguntas[pregunta].res3 + "</h2>"
+        preguntasEl.innerHTML += "<h2>" + questions.preguntas[pregunta].res4 + "</h2>"
 
-        for (const y in json.preguntitas){
-            pregunList += (json.preguntitas[y])
-        }
-        console.log.y;
-        preguntitasP.innerText = pregunList
+    } 
     })
 }
 
