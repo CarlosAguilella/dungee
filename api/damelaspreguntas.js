@@ -12,5 +12,5 @@ export default function handler(request, response){
             }
         }
     }
-    response.json(preguntas)
+    response.json(questions)
 }
