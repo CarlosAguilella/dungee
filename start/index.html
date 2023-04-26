@@ -9,11 +9,15 @@
 </nav>
 <h1>START</h1>
 <button onclick="generarPIN()">START</button>
-<button onclick="mostrarPreguntas()">TODO LISTO</button>
+<button onclick="mostrarPreguntas()">GENERAR PREGUNTAS</button>
+<button onclick="obtenerPreguntas()">EMPEZAR</button>
+
 
 <p id = "pinEl"></p>
 <p id="usersP"></p>
 <p id="preguntitasP"></p>
+
+
 
 <script>
 let pin;
@@ -40,17 +44,23 @@ function obtenerUsuarios(){
         usersP.innerText = usersList
         });
 
+
 }
 
 function mostrarPreguntas(){
     fetch(`https://dungee-tano.vercel.app/api/damelaspreguntas`)
     .then(preguntitas => preguntitas.json())
-    .then(json => response.json(datosjson))
-        questions.innerText = "";
-        
-        for(const x in json.preguntas){
-            questions.innerText += json.showQuestions[x].name + ',  '
-        
+    .then(json => {
+        console.log(json);
+        let pregunList = ""
+
+        for (const y in json.preguntitas){
+            pregunList += (json.preguntitas[y])
         }
-}   
+        console.log.y;
+        preguntitasP.innerText = pregunList
+    })
+}
+
+
 </script> 
