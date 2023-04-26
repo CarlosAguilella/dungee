@@ -15,8 +15,6 @@
 <p id="usersP"></p>
 <p id="preguntitasP"></p>
 
-
-
 <script>
 let pin;
 
@@ -42,23 +40,17 @@ function obtenerUsuarios(){
         usersP.innerText = usersList
         });
 
-
 }
 
 function mostrarPreguntas(){
     fetch(`https://dungee-tano.vercel.app/api/damelaspreguntas`)
     .then(preguntitas => preguntitas.json())
-    .then(json => {
-        let pregunList = ""
-
-        for (const y in json.preguntitas){
-            pregunList += (json.preguntitas[y])
+    .then(json => response.json(datosjson))
+        questions.innerText = "";
+        
+        for(const x in json.preguntas){
+            questions.innerText += json.showQuestions[x].name + ',  '
+        
         }
-        console.log.y;
-        preguntitasP.innerText = pregunList
-    })
-
-
-
-}
+}   
 </script> 
