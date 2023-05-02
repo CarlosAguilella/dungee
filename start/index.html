@@ -49,7 +49,7 @@ function obtenerUsuarios(){
 }
 
 function mostrarPreguntas(){
-    ocultarCosas();
+    ocultarCosasArriba();
     fetch(`https://dungee-tano.vercel.app/api/damelaspreguntas`)
     .then(preguntitas => preguntitas.json())
     .then(questions => {
@@ -64,6 +64,8 @@ function mostrarPreguntas(){
     } 
     })
 }
+
+
 function ocultarCosasArriba(){
     loDeArriba.style.display = "none";
 }
