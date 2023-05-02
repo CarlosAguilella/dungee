@@ -7,15 +7,16 @@
     <a href="start">Start new game</a>
     <a href="play">Play an existing Dungee</a>    
 </nav>
-<h1>START</h1>
-<button onclick="generarPIN()">START</button>
-<button onclick="mostrarPreguntas()">GENERAR PREGUNTAS</button>
-<button onclick="obtenerPreguntas()">EMPEZAR</button>
 
+<div id="loDeArriba">
+    <h1>START</h1>
+    <button onclick="generarPIN()">START</button>
+    <button onclick="mostrarPreguntas()">GENERAR PREGUNTAS</button>
+    <p id = "pinEl"></p>
+    <p id="usersEl"></p>
+    <div id="preguntasEl"></div>
+</div>
 
-<p id = "pinEl"></p>
-<p id="usersEl"></p>
-<div id="preguntasEl"></div>
 
 
 
@@ -48,6 +49,7 @@ function obtenerUsuarios(){
 }
 
 function mostrarPreguntas(){
+    ocultarCosas();
     fetch(`https://dungee-tano.vercel.app/api/damelaspreguntas`)
     .then(preguntitas => preguntitas.json())
     .then(questions => {
@@ -61,6 +63,9 @@ function mostrarPreguntas(){
 
     } 
     })
+}
+function ocultarCosasArriba(){
+    loDeArriba.style.display = "none";
 }
 
 
