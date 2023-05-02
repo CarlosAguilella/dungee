@@ -85,9 +85,11 @@ function ocultarCosasArriba(){
 
 <style>
     .oculto{
-        height: 0;
-        transform: scaleY(0);
-        transition: height 1.5s;
-        overflow: hidden;
+        animation: desaparecer 4s
+
     }
+    @keyframes desaparecer {
+        99% {transform: scaleY(0);}
+    }
+        100% {height: 0}
 </style>
