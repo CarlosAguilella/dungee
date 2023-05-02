@@ -14,9 +14,9 @@
     <button onclick="mostrarPreguntas()">GENERAR PREGUNTAS</button>
     <p id = "pinEl"></p>
     <p id="usersEl"></p>
-    <div id="preguntasEl"></div>
 </div>
 
+<div id="preguntasEl"></div>
 
 
 
@@ -50,6 +50,8 @@ function obtenerUsuarios(){
 
 function mostrarPreguntas(){
     ocultarCosasArriba();
+
+
     fetch(`https://dungee-tano.vercel.app/api/damelaspreguntas`)
     .then(preguntitas => preguntitas.json())
     .then(questions => {
