@@ -98,7 +98,7 @@ function irMostrandoPreguntas(cantidad){
 
     let i = 0;
 
-    fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pin}`, {
+    fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pin}.json`, {
             method: 'POST',
             body: `{"pregunta": ${i}}`
         });
@@ -107,7 +107,7 @@ function irMostrandoPreguntas(cantidad){
     let MostrarPregs = setInterval(()=> {
         document.getElementById(`pregunta${i}`).classList.toggle("oculto");
         i++;
-        fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pin}`, {
+        fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pin}.json`, {
             method: 'POST',
             body: `{"pregunta": ${i}}`
         });
