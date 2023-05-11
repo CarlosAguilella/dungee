@@ -95,18 +95,29 @@ function mostrarPreguntas(){
 
 
 function irMostrandoPreguntas(cantidad){
-        let i = 0;
-        document.getElementById(`pregunta${i}`).classList.toggle("oculto");
-        let MostrarPregs = setInterval(()=> {
-            document.getElementById(`pregunta${i}`).classList.toggle("oculto");
-            i++;
-            document.getElementById(`pregunta${i}`).classList.toggle("oculto");
-            
-            if(i==cantidad){
-            clearInterval(MostrarPregs)
-            }
 
-        }, 1000);
+    let i = 0;
+
+    fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pin}`, {
+            method: 'POST',
+            body: `{"pregunta": ${i}}`
+        });
+
+    document.getElementById(`pregunta${i}`).classList.toggle("oculto");
+    let MostrarPregs = setInterval(()=> {
+        document.getElementById(`pregunta${i}`).classList.toggle("oculto");
+        i++;
+        fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pin}`, {
+            method: 'POST',
+            body: `{"pregunta": ${i}}`
+        });
+        document.getElementById(`pregunta${i}`).classList.toggle("oculto");
+        
+        if(i==cantidad){
+        clearInterval(MostrarPregs)
+        }
+
+    }, 1000);
         
 }
 
@@ -116,10 +127,6 @@ function ocultarCosasArriba(){
 
 
 </script> 
-
-
-
-
 
 
 
