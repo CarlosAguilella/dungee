@@ -9,13 +9,13 @@
 </nav>
 
 
-<div id="apuntarseScreen">
+<div id="apuntarseScreen" class="fragment">
     <h1>PLAY</h1>
     <input id="pinEl" placeholder="PIN"/>
     <input id="nomEl" placeholder="Your name"/>
     <button onclick="apuntarse()">PLAY</button>
 </div>
-<div id="waitingScreen" class="oculto">
+<div id="waitingScreen" class="fragment">
     <div class="hexagon" aria-label="Animated hexagonal ripples">
         <div class="hexagon__group">
             <div class="hexagon__sector"></div>
@@ -68,23 +68,62 @@
     </div>
     <p aria-label="Loading">ESPERA A QUE EMPIECE</p>
 </div>
+<div id="botonesScreen" class="fragment">
+    <div class="botones">
+        <button onclick="responder('a')">rojo</button>
+        <button onclick="responder('b')">verde</button>
+        <button onclick="responder('c')">azul</button>
+        <button onclick="responder('d')">amarillo</button>
+    </div>    
+</div>
 
 
 <script>
+    let pin;
+    let preguntaActual;
+
+    mostrar("apuntarseScreen", "fragment");
+
+
     function apuntarse(){
-        fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pinEl.value}/users.json`, {
+        pin = pinEl.value;
+        fetch (`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pin}/users.json`, {
             method: 'POST',
             body: `{"name": "${nomEl.value}" }`
         });
 
-        apuntarseScreen.classList.toggle("oculto")
-        waitingScreen.classList.toggle("oculto")
+        mostrar("waitingScreen", "fragment");
+
+        obtenerPreguntaActual();
     }
 
+function obtenerPreguntaActual(){
+    setInterval(()=>{
+        fetch(`https://dungee-252d3-default-rtdb.europe-west1.firebasedatabase.app/pins/PIN${pin}/pregunta.json`)
+        .then(data => data.json())
+        .then(json => {
+            if (json != null) {
+                preguntaActual = json;
+                mostrar("botonesScreen", "fragment");
+            }
+        })
+    },1000);
+}
+
+function responder(respuesta){
+
+console.log(`${preguntaActual} responde: ${respuesta}`)
+
+
+}
 
 
 
-
+// lib
+function mostrar(elementId, className){
+    document.querySelectorAll(`.${className}`).forEach(el => el.classList.add("oculto"));
+    document.getElementById(elementId).classList.remove("oculto");
+}
 
 
 
